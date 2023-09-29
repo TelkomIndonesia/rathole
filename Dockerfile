@@ -2,7 +2,7 @@ FROM rust:alpine as builder
 RUN apk add --no-cache musl-dev openssl openssl-dev pkgconfig
 WORKDIR /home/rust/src
 COPY . .
-RUN cargo build --locked --release --features client,server,noise,hot-reload
+RUN cargo build --locked --release --features client,server,noise,websocket,hot-reload
 RUN mkdir -p build-out/
 RUN cp target/release/rathole build-out/
 
