@@ -32,10 +32,10 @@ jobs:
         with:
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest, ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
-      - name: Build and push '-all' tags
-        id: docker_build_no_tls
+      - name: Build and push '-notls' tags
+        id: docker_build_notls
         uses: docker/build-push-action@v2
         with:
           push: true
           build-args: FEATURES=client,server,noise,hot-reload
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}-all
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}-notls
